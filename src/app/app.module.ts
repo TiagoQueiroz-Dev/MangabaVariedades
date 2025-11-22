@@ -3,14 +3,17 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
+import { Router } from 'express';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TelaInicialComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     provideClientHydration(withEventReplay())
