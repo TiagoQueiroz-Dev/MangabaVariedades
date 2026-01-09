@@ -5,11 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TelaInicialComponent } from './pages/tela-inicial/tela-inicial.component';
 import { Router } from 'express';
+import { NavbarComponent } from './pages/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TelaInicialComponent
+    TelaInicialComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
