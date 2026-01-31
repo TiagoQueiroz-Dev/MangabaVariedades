@@ -1,0 +1,14 @@
+10/01/2026 18:07:03.123 [INFO] [Thread:013] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 18:07:03.193 [INFO] [Thread:013] [Logger:ResponseLogging] [Caller:ResponseLogging.Log] [TotalMilliseconds=170] IP=::1 HTTP_STATUS=200 MÉTODO=PrimeiroRetorno URL=/api/Base 
+10/01/2026 18:07:09.782 [INFO] [Thread:013] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 18:07:09.797 [INFO] [Thread:013] [Logger:ResponseLogging] [Caller:ResponseLogging.Log] [TotalMilliseconds=49] IP=::1 HTTP_STATUS=200 MÉTODO=PrimeiroRetorno URL=/api/Base 
+10/01/2026 18:10:05.689 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 18:10:05.689 [INFO] [Thread:008] [Logger:ResponseLogging] [Caller:ResponseLogging.Log] [TotalMilliseconds=36] IP=::1 HTTP_STATUS=200 MÉTODO=PrimeiroRetorno URL=/api/Base 
+10/01/2026 18:10:42.710 [INFO] [Thread:002] [Logger:Lifetime] [Caller:GenericWebHostService.StartAsync] Now listening on: http://localhost:5000 
+10/01/2026 18:10:42.748 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ConsoleLifetime.OnApplicationStarted] Application started. Press Ctrl+C to shut down. 
+10/01/2026 18:10:42.763 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ConsoleLifetime.OnApplicationStarted] Hosting environment: Production 
+10/01/2026 18:10:42.763 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ApplicationLifetime.NotifyStarted] Content root path: C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api 
+10/01/2026 18:15:12.453 [INFO] [Thread:013] [Logger:ResponseLogging] [Caller:ResponseLogging.Log] [TotalMilliseconds=163] IP=::1 HTTP_STATUS=200 MÉTODO=PrimeiroRetorno URL=/api/Base 
+10/01/2026 18:15:15.291 [INFO] [Thread:003] [Logger:ResponseLogging] [Caller:ResponseLogging.Log] [TotalMilliseconds=70] IP=::1 HTTP_STATUS=200 MÉTODO=PrimeiroRetorno URL=/api/Base 
+10/01/2026 18:15:16.541 [INFO] [Thread:013] [Logger:ResponseLogging] [Caller:ResponseLogging.Log] [TotalMilliseconds=0] IP=::1 HTTP_STATUS=200 MÉTODO=PrimeiroRetorno URL=/api/Base 
+10/01/2026 18:15:18.126 [INFO] [Thread:011] [Logger:ResponseLogging] [Caller:ResponseLogging.Log] [TotalMilliseconds=0] IP=::1 HTTP_STATUS=200 MÉTODO=PrimeiroRetorno URL=/api/Base 

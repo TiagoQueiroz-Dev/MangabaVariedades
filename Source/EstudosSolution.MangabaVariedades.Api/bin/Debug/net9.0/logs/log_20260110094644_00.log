@@ -1,0 +1,48 @@
+10/01/2026 09:12:33.153 [INFO] [Thread:002] [Logger:Lifetime] [Caller:GenericWebHostService.StartAsync] Now listening on: http://localhost:5000 
+10/01/2026 09:12:33.219 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ConsoleLifetime.OnApplicationStarted] Application started. Press Ctrl+C to shut down. 
+10/01/2026 09:12:33.219 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ConsoleLifetime.OnApplicationStarted] Hosting environment: Production 
+10/01/2026 09:12:33.219 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ApplicationLifetime.NotifyStarted] Content root path: C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api 
+10/01/2026 09:43:20.659 [INFO] [Thread:002] [Logger:Lifetime] [Caller:GenericWebHostService.StartAsync] Now listening on: http://localhost:5000 
+10/01/2026 09:43:20.715 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ConsoleLifetime.OnApplicationStarted] Application started. Press Ctrl+C to shut down. 
+10/01/2026 09:43:20.715 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ConsoleLifetime.OnApplicationStarted] Hosting environment: Production 
+10/01/2026 09:43:20.715 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ApplicationLifetime.NotifyStarted] Content root path: C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api 
+10/01/2026 09:45:37.343 [INFO] [Thread:013] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:15.886 [INFO] [Thread:015] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:17.323 [INFO] [Thread:012] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:32.584 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:33.294 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:34.038 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:34.563 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:35.184 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:35.801 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:36.334 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:36.805 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:37.383 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:38.012 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:38.519 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:39.043 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:39.622 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:40.082 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:40.245 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:40.447 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:40.572 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:40.784 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:40.951 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:41.117 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:41.289 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:41.482 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:41.659 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:41.814 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:41.990 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:42.161 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:42.354 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:42.544 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:42.769 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:42.932 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:43.104 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:43.291 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:43.483 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:43.665 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:43.858 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:43.980 [INFO] [Thread:011] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 
+10/01/2026 09:46:44.156 [INFO] [Thread:008] [Logger:BaseController] [Caller:BaseController.PrimeiroRetorno] Primeiro retorno do retorno 

@@ -1,0 +1,4 @@
+10/01/2026 17:59:49.348 [INFO] [Thread:002] [Logger:Lifetime] [Caller:GenericWebHostService.StartAsync] Now listening on: http://localhost:5000 
+10/01/2026 17:59:49.418 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ConsoleLifetime.OnApplicationStarted] Application started. Press Ctrl+C to shut down. 
+10/01/2026 17:59:49.418 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ConsoleLifetime.OnApplicationStarted] Hosting environment: Production 
+10/01/2026 17:59:49.418 [INFO] [Thread:002] [Logger:Lifetime] [Caller:ApplicationLifetime.NotifyStarted] Content root path: C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api 

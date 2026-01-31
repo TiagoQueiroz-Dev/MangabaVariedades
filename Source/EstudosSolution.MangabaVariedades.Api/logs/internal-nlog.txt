@@ -1,0 +1,14 @@
+2026-01-10 09:12:32.5538 Info Registered target NLog.Targets.FileTarget(Name=todos)
+2026-01-10 09:12:32.5662 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.0.7.4784. Product version: 6.0.7+4dd16e8d54b0f5510479cbe00ba28b77501b7901. GlobalAssemblyCache: False
+2026-01-10 09:12:32.5938 Info Configuration initialized: TargetNames=todos, ConfigItems=25, AutoReload=true, FilePath=C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api\nlog.config
+2026-01-10 09:43:20.2000 Info Registered target NLog.Targets.FileTarget(Name=todos)
+2026-01-10 09:43:20.2195 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.0.7.4784. Product version: 6.0.7+4dd16e8d54b0f5510479cbe00ba28b77501b7901. GlobalAssemblyCache: False
+2026-01-10 09:43:20.2487 Info Configuration initialized: TargetNames=todos, ConfigItems=25, AutoReload=true, FilePath=C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api\nlog.config
+2026-01-10 17:59:48.8344 Info Registered target NLog.Targets.FileTarget(Name=todos)
+2026-01-10 17:59:48.8563 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.0.7.4784. Product version: 6.0.7+4dd16e8d54b0f5510479cbe00ba28b77501b7901. GlobalAssemblyCache: False
+2026-01-10 17:59:48.8931 Info Configuration initialized: TargetNames=todos, ConfigItems=25, AutoReload=true, FilePath=C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api\nlog.config
+2026-01-10 17:59:49.3955 Info FileTarget(Name=todos): Archive moving file from 'C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api\bin\Debug\net9.0\logs\log.log' to 'C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api\bin\Debug\net9.0\logs\log_20260110094644_00.log'
+2026-01-10 18:07:03.1235 Info FileTarget(Name=todos): Archive moving file from 'C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api\bin\Debug\net9.0\logs\log.log' to 'C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api\bin\Debug\net9.0\logs\log_20260110175949_00.log'
+2026-01-10 18:10:42.1776 Info Registered target NLog.Targets.FileTarget(Name=todos)
+2026-01-10 18:10:42.2406 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.0.7.4784. Product version: 6.0.7+4dd16e8d54b0f5510479cbe00ba28b77501b7901. GlobalAssemblyCache: False
+2026-01-10 18:10:42.2667 Info Configuration initialized: TargetNames=todos, ConfigItems=25, AutoReload=true, FilePath=C:\Estudos\Projetos\testes\teste4\Source\EstudosSolution.Teste4.Api\nlog.config

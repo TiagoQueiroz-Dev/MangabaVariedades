@@ -1,0 +1,317 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Api\\EstudosSolution.MangabaVariedades.Api.csproj": {}
+  },
+  "projects": {
+    "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Api\\EstudosSolution.MangabaVariedades.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Api\\EstudosSolution.MangabaVariedades.Api.csproj",
+        "projectName": "EstudosSolution.MangabaVariedades.Api",
+        "projectPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Api\\EstudosSolution.MangabaVariedades.Api.csproj",
+        "packagesPath": "C:\\Users\\Tiago Queiroz\\.nuget\\packages\\",
+        "outputPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Api\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Tiago Queiroz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Application\\EstudosSolution.MangabaVariedades.Application.csproj": {
+                "projectPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Application\\EstudosSolution.MangabaVariedades.Application.csproj"
+              },
+              "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Domain\\EstudosSolution.MangabaVariedades.Domain.csproj": {
+                "projectPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Domain\\EstudosSolution.MangabaVariedades.Domain.csproj"
+              },
+              "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Infra\\EstudosSolution.MangabaVariedades.Infra.csproj": {
+                "projectPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Infra\\EstudosSolution.MangabaVariedades.Infra.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "NLog": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Application\\EstudosSolution.MangabaVariedades.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Application\\EstudosSolution.MangabaVariedades.Application.csproj",
+        "projectName": "EstudosSolution.MangabaVariedades.Application",
+        "projectPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Application\\EstudosSolution.MangabaVariedades.Application.csproj",
+        "packagesPath": "C:\\Users\\Tiago Queiroz\\.nuget\\packages\\",
+        "outputPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Tiago Queiroz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.3.9, )"
+            },
+            "Microsoft.AspNetCore.Routing": {
+              "target": "Package",
+              "version": "[2.3.9, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Domain\\EstudosSolution.MangabaVariedades.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Domain\\EstudosSolution.MangabaVariedades.Domain.csproj",
+        "projectName": "EstudosSolution.MangabaVariedades.Domain",
+        "projectPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Domain\\EstudosSolution.MangabaVariedades.Domain.csproj",
+        "packagesPath": "C:\\Users\\Tiago Queiroz\\.nuget\\packages\\",
+        "outputPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Tiago Queiroz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "NLog": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Infra\\EstudosSolution.MangabaVariedades.Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Infra\\EstudosSolution.MangabaVariedades.Infra.csproj",
+        "projectName": "EstudosSolution.MangabaVariedades.Infra",
+        "projectPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Infra\\EstudosSolution.MangabaVariedades.Infra.csproj",
+        "packagesPath": "C:\\Users\\Tiago Queiroz\\.nuget\\packages\\",
+        "outputPath": "C:\\Estudos\\Projetos\\MangabaVariedades\\EstudosSolution.MangabaVariedades\\Source\\EstudosSolution.MangabaVariedades.Infra\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Tiago Queiroz\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.3.9, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.308/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
