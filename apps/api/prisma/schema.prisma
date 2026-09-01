@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Generates the base zod schemas consumed by @repo/shared-types
+generator zod {
+  provider         = "node ./prisma/zod-prisma-types-generator.cjs"
+  output           = "../../../packages/shared-types/src/generated"
+  createInputTypes = false
+  addSelectType    = false
+  addIncludeType   = false
+  coerceDate       = false
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Task {
+  id          String   @id @default(uuid())
+  title       String
+  description String   @default("")
+  // Plain string on purpose: values are validated by TaskStatusSchema in @repo/shared-types
+  status      String   @default("todo")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}

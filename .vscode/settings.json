@@ -1,0 +1,7 @@
+{
+  "eslint.workingDirectories": [
+    "apps/api",
+    "apps/web",
+    "packages/shared-types"
+  ]
+}
