@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import Header from '../components/Header'
+import { QuoteCartProvider } from '../components/catalog/QuoteCart'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,8 +18,10 @@ const queryClient = new QueryClient({
 export const Route = createRootRoute({
   component: () => (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <Outlet />
+      <QuoteCartProvider>
+        <Header />
+        <Outlet />
+      </QuoteCartProvider>
       <TanStackRouterDevtools position="bottom-right" />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

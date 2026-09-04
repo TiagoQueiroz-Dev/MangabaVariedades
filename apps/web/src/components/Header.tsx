@@ -1,96 +1,126 @@
-import { Link } from '@tanstack/react-router'
-
 import { useState } from 'react'
-import { Home, Menu, X, CheckSquare } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+import { Home, Menu, PackageSearch, Phone, Sparkles, X } from 'lucide-react'
+
+import { BrandMark } from './catalog/BrandMark'
+import { QuoteDrawer } from './catalog/QuoteCart'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
-      <header className="h-16 px-4 flex items-center justify-between bg-gray-900 text-white shadow-lg">
-        <div className="flex items-center gap-4">
+      <header className="sticky top-0 z-40 border-b border-black/10 bg-white/92 backdrop-blur">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <button
             onClick={() => setIsOpen(true)}
-            className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
-            aria-label="Open menu"
+            className="grid size-11 place-items-center rounded-full border border-black/10 text-[#263021] transition hover:bg-black/5 lg:hidden"
+            aria-label="Abrir menu"
           >
-            <Menu size={24} />
+            <Menu className="size-5" />
           </button>
+
           <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold">Mangaba Variedades</span>
+            <BrandMark />
           </Link>
+
+          <nav className="hidden items-center gap-7 lg:flex">
+            <NavLink to="/">Início</NavLink>
+            <NavLink to="/produtos">Produtos</NavLink>
+            <a href="/#novidades" className="text-sm font800 text-[#5f6759] transition hover:text-[#263021]">
+              Novidades
+            </a>
+            <NavLink to="/contato">Contato</NavLink>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <Link
+              to="/produtos"
+              search={{ deal: true }}
+              className="hidden h-11 items-center gap-2 rounded-full bg-[#e9fb4f] px-4 text-sm font900 text-[#3f5735] transition hover:bg-[#d9ee38] sm:inline-flex"
+            >
+              <Sparkles className="size-4" />
+              Ofertas
+            </Link>
+            <QuoteDrawer />
+          </div>
         </div>
-        <nav className="hidden md:flex items-center gap-6">
-          <Link
-            to="/"
-            className="text-gray-300 hover:text-white transition-colors"
-            activeProps={{ className: 'text-white font-medium' }}
-          >
-            Inicio
-          </Link>
-          <Link
-            to="/tasks"
-            className="text-gray-300 hover:text-white transition-colors"
-            activeProps={{ className: 'text-white font-medium' }}
-          >
-            Tarefas
-          </Link>
-        </nav>
       </header>
 
       <aside
-        className={`fixed top-0 left-0 h-full w-80 bg-gray-900 text-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${
+        className={`fixed left-0 top-0 z-50 flex h-full w-80 max-w-[88vw] flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="flex items-center justify-between p-4 border-b border-gray-700">
-          <h2 className="text-xl font-bold">Navegacao</h2>
+        <div className="flex items-center justify-between border-b border-black/10 p-4">
+          <BrandMark />
           <button
             onClick={() => setIsOpen(false)}
-            className="p-2 hover:bg-gray-800 rounded-lg transition-colors"
-            aria-label="Close menu"
+            className="grid size-10 place-items-center rounded-full border border-black/10 text-[#263021] transition hover:bg-black/5"
+            aria-label="Fechar menu"
           >
-            <X size={24} />
+            <X className="size-5" />
           </button>
         </div>
 
-        <nav className="flex-1 p-4 overflow-y-auto">
+        <nav className="flex-1 space-y-2 overflow-y-auto p-4">
           <Link
             to="/"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 rounded-2xl p-3 font800 text-[#5f6759] transition hover:bg-[#f8f8f2] hover:text-[#263021]"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors mb-2',
+                'flex items-center gap-3 rounded-2xl bg-[#e9fb4f] p-3 font900 text-[#3f5735]',
             }}
           >
-            <Home size={20} />
-            <span className="font-medium">Inicio</span>
+            <Home className="size-5" />
+            Inicio
           </Link>
-
           <Link
-            to="/tasks"
+            to="/produtos"
             onClick={() => setIsOpen(false)}
-            className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-800 transition-colors mb-2"
+            className="flex items-center gap-3 rounded-2xl p-3 font800 text-[#5f6759] transition hover:bg-[#f8f8f2] hover:text-[#263021]"
             activeProps={{
               className:
-                'flex items-center gap-3 p-3 rounded-lg bg-blue-600 hover:bg-blue-700 transition-colors mb-2',
+                'flex items-center gap-3 rounded-2xl bg-[#e9fb4f] p-3 font900 text-[#3f5735]',
             }}
           >
-            <CheckSquare size={20} />
-            <span className="font-medium">Tarefas</span>
+            <PackageSearch className="size-5" />
+            Produtos
+          </Link>
+          <Link
+            to="/contato"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center gap-3 rounded-2xl p-3 font800 text-[#5f6759] transition hover:bg-[#f8f8f2] hover:text-[#263021]"
+            activeProps={{
+              className:
+                'flex items-center gap-3 rounded-2xl bg-[#e9fb4f] p-3 font900 text-[#3f5735]',
+            }}
+          >
+            <Phone className="size-5" />
+            Contato
           </Link>
         </nav>
       </aside>
 
-      {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40"
+          className="fixed inset-0 z-40 bg-black/35"
           onClick={() => setIsOpen(false)}
         />
       )}
     </>
+  )
+}
+
+function NavLink({ to, children }: { to: '/' | '/produtos' | '/contato'; children: string }) {
+  return (
+    <Link
+      to={to}
+      className="text-sm font800 text-[#5f6759] transition hover:text-[#263021]"
+      activeProps={{ className: 'text-sm font900 text-[#263021]' }}
+    >
+      {children}
+    </Link>
   )
 }
