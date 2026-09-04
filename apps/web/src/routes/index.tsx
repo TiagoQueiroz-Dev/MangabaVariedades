@@ -1,71 +1,178 @@
-import { createFileRoute, Link } from '@tanstack/react-router';
-import type { ReactNode } from 'react';
-import { Boxes, ClipboardList, Database, Workflow } from 'lucide-react';
+import { useMemo } from 'react'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { ArrowRight, BadgePercent, Clock, Flame, PackageSearch, Sparkles, Store } from 'lucide-react'
+
+import { CategoryMosaic } from '../components/catalog/CategoryMosaic'
+import { ProductCard } from '../components/catalog/ProductCard'
+import { PromoBanners } from '../components/catalog/PromoBanners'
+import { QuickFilters } from '../components/catalog/QuickFilters'
+import { categories, getDealProducts, getFeaturedProducts, getProductsUnder, products } from '../data/catalog'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
-});
+})
 
 function HomePage() {
+  const featuredProducts = useMemo(() => getFeaturedProducts(), [])
+  const deals = useMemo(() => getDealProducts(), [])
+  const underTen = useMemo(() => getProductsUnder(10), [])
+
   return (
-    <div className="min-h-[calc(100vh-64px)] bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="max-w-4xl mx-auto px-8 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">
-            Mangaba Variedades
-          </h1>
-          <p className="text-xl text-gray-600">
-            Aplicacao fullstack com TanStack, NestJS, Prisma e tipos compartilhados
-          </p>
+    <main className="bg-[#f8f8f2]">
+      <section className="border-b border-black/10 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <QuickFilters />
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+        <PromoBanners />
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 pb-4 sm:px-6 lg:grid-cols-4 lg:px-8">
+        <RetailPill icon={<Store className="size-5" />} title="Retire na loja" text="Consulte disponibilidade antes de sair." />
+        <RetailPill icon={<BadgePercent className="size-5" />} title="Ofertas visíveis" text="Produtos com preço bom ganham destaque." />
+        <RetailPill icon={<PackageSearch className="size-5" />} title="Busca rápida" text="Encontre por categoria, uso ou produto." />
+        <RetailPill icon={<Clock className="size-5" />} title="Lista prática" text="Monte uma consulta em poucos cliques." />
+      </section>
+
+      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <div>
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font900 uppercase text-[#f19500]">Departamentos</p>
+              <h1 className="mt-1 text-3xl font-black tracking-tight text-[#263021] sm:text-4xl">
+                Entre pelo corredor certo.
+              </h1>
+            </div>
+            <Link
+              to="/produtos"
+              className="hidden h-10 items-center gap-2 rounded-full border border-black/10 bg-white px-4 text-sm font900 text-[#263021] transition hover:bg-[#e9fb4f] sm:inline-flex"
+            >
+              Todos
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+          <CategoryMosaic />
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          <FeatureCard
-            title="Web"
-            description="Frontend React com TanStack Router e Vite."
-            icon={<Workflow size={32} />}
-          />
-          <FeatureCard
-            title="API"
-            description="Backend NestJS com Swagger e validacao por Zod."
-            icon={<Database size={32} />}
-          />
-          <FeatureCard
-            title="Tipos"
-            description="Schemas compartilhados entre API e frontend."
-            icon={<Boxes size={32} />}
-          />
-          <FeatureCard
-            title="Fluxo inicial"
-            description="Modulo de tarefas mantido como exemplo funcional do template."
-            icon={<ClipboardList size={32} />}
-          />
+        <div>
+          <SectionHeading eyebrow="Mais procurados" title="Produtos para bater o olho e pedir" to="/produtos" />
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {featuredProducts.slice(0, 6).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
+      </section>
 
-        <div className="text-center">
-          <Link
-            to="/tasks"
-            className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl"
-          >
-            Abrir tarefas
-            <span aria-hidden="true">&rarr;</span>
-          </Link>
+      <section className="border-y border-black/10 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
+          <div className="rounded-3xl bg-[#263021] p-6 text-white">
+            <Flame className="mb-5 size-8 text-[#f7c51f]" />
+            <p className="text-sm font900 uppercase text-[#e9fb4f]">Garimpo rápido</p>
+            <h2 className="mt-2 text-3xl font-black">Achadinhos até R$ 10</h2>
+            <p className="mt-3 leading-7 text-white/72">
+              Esse bloco existe para compra por impulso boa: item barato, útil e fácil de adicionar à lista.
+            </p>
+            <Link
+              to="/produtos"
+              search={{ maxPrice: 10 }}
+              className="mt-6 inline-flex h-11 items-center gap-2 rounded-full bg-[#f7c51f] px-5 text-sm font900 text-[#263021] transition hover:bg-[#eab80f]"
+            >
+              Ver até R$ 10
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {underTen.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
+      </section>
 
-        <div className="mt-16 text-center text-gray-500 text-sm">
-          <p>Frontend: localhost:3000 | API: localhost:3001</p>
+      <section id="novidades" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Promoções"
+          title="Ofertas e novidades da semana"
+          to="/produtos"
+          search={{ deal: true }}
+        />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[...deals, ...products.filter((product) => product.tag === 'novo')].slice(0, 8).map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
-      </div>
-    </div>
-  );
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <div className="rounded-3xl bg-[#e9fb4f] p-6 sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <Sparkles className="mb-4 size-8 text-[#3f5735]" />
+              <h2 className="text-3xl font-black text-[#263021]">Loja de variedades precisa ter atalhos.</h2>
+              <p className="mt-3 leading-7 text-[#3f5735]">
+                A primeira tela agora entrega busca, departamentos, promoções e produtos. Menos discurso, mais vitrine.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {categories.slice(0, 6).map((category) => (
+                <Link
+                  key={category.id}
+                  to="/produtos"
+                  search={{ category: category.id }}
+                  className="rounded-2xl bg-white/80 p-4 text-[#263021] shadow-sm transition hover:bg-white"
+                >
+                  <span className="text-sm font900">{category.shortLabel}</span>
+                  <span className="mt-1 block text-xs font700 text-[#68705f]">{category.description}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
 }
 
-function FeatureCard({ title, description, icon }: { title: string; description: string; icon: ReactNode }) {
+function RetailPill({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
   return (
-    <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-      <div className="text-blue-600 mb-3">{icon}</div>
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
+    <div className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4 shadow-sm">
+      <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-[#fff1c2] text-[#f19500]">{icon}</div>
+      <div>
+        <p className="font900 text-[#263021]">{title}</p>
+        <p className="mt-1 text-sm leading-5 text-[#68705f]">{text}</p>
+      </div>
     </div>
-  );
+  )
+}
+
+function SectionHeading({
+  eyebrow,
+  title,
+  to,
+  search,
+}: {
+  eyebrow: string
+  title: string
+  to: '/produtos'
+  search?: { category?: string; deal?: boolean; maxPrice?: number; q?: string }
+}) {
+  return (
+    <div className="mb-5 flex items-end justify-between gap-4">
+      <div>
+        <p className="text-sm font900 uppercase text-[#f19500]">{eyebrow}</p>
+        <h2 className="mt-1 text-3xl font-black tracking-tight text-[#263021]">{title}</h2>
+      </div>
+      <Link
+        to={to}
+        search={search}
+        className="hidden h-10 items-center gap-2 rounded-full border border-black/10 bg-white px-4 text-sm font900 text-[#263021] transition hover:bg-[#e9fb4f] sm:inline-flex"
+      >
+        Ver mais
+        <ArrowRight className="size-4" />
+      </Link>
+    </div>
+  )
 }
