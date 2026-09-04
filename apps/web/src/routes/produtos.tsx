@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { BadgePercent, PackageSearch, Search, SlidersHorizontal, X } from 'lucide-react'
 
 import { ProductCard } from '../components/catalog/ProductCard'
+import { QuickFilters } from '../components/catalog/QuickFilters'
 import { categories, getCategory, products } from '../data/catalog'
 import { normalizeText } from '../lib/format'
 
@@ -10,6 +11,7 @@ type ProductsSearch = {
   q?: string
   category?: string
   deal?: boolean
+  maxPrice?: number
 }
 
 export const Route = createFileRoute('/produtos')({
@@ -17,6 +19,7 @@ export const Route = createFileRoute('/produtos')({
     q: typeof search.q === 'string' ? search.q : '',
     category: typeof search.category === 'string' ? search.category : '',
     deal: search.deal === true || search.deal === 'true',
+    maxPrice: typeof search.maxPrice === 'number' ? search.maxPrice : Number(search.maxPrice) || undefined,
   }),
   component: ProductsPage,
 })
@@ -26,6 +29,7 @@ function ProductsPage() {
   const [query, setQuery] = useState(search.q ?? '')
   const [categoryId, setCategoryId] = useState(search.category ?? '')
   const [dealOnly, setDealOnly] = useState(Boolean(search.deal))
+  const [maxPrice, setMaxPrice] = useState(search.maxPrice ?? 0)
   const [sortBy, setSortBy] = useState<'relevancia' | 'menor-preco' | 'maior-preco' | 'novidades'>('relevancia')
 
   const filteredProducts = useMemo(() => {
@@ -38,10 +42,13 @@ function ProductsPage() {
           [product.name, product.description, category?.name, product.highlights.join(' ')].join(' '),
         )
 
+        const tagText = product.tag ? normalizeText(product.tag) : ''
+
         return (
-          (!normalizedQuery || searchableText.includes(normalizedQuery)) &&
+          (!normalizedQuery || tagText.includes(normalizedQuery) || searchableText.includes(normalizedQuery)) &&
           (!categoryId || product.categoryId === categoryId) &&
-          (!dealOnly || product.tag === 'oferta')
+          (!dealOnly || product.tag === 'oferta') &&
+          (!maxPrice || product.price <= maxPrice)
         )
       })
       .sort((a, b) => {
@@ -50,7 +57,7 @@ function ProductsPage() {
         if (sortBy === 'novidades') return Number(b.tag === 'novo') - Number(a.tag === 'novo')
         return Number(Boolean(b.tag)) - Number(Boolean(a.tag))
       })
-  }, [categoryId, dealOnly, query, sortBy])
+  }, [categoryId, dealOnly, maxPrice, query, sortBy])
 
   const activeCategory = categoryId ? getCategory(categoryId) : undefined
 
@@ -58,32 +65,39 @@ function ProductsPage() {
     setQuery('')
     setCategoryId('')
     setDealOnly(false)
+    setMaxPrice(0)
     setSortBy('relevancia')
   }
 
   return (
     <main className="min-h-screen bg-[#f8f8f2]">
       <section className="border-b border-black/10 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+          <QuickFilters compact />
+        </div>
+      </section>
+
+      <section className="border-b border-black/10 bg-[#fff8e8]">
+        <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
+          <div className="grid gap-5 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
               <p className="text-sm font900 uppercase text-[#99ad17]">Catálogo</p>
-              <h1 className="mt-2 text-4xl font-black tracking-tight text-[#263021] sm:text-5xl">
-                Ache rápido. Compare fácil. Consulte sem enrolação.
+              <h1 className="mt-2 text-3xl font-black tracking-tight text-[#263021] sm:text-4xl">
+                Corredores, filtros rápidos e produtos sem enrolação.
               </h1>
-              <p className="mt-4 max-w-2xl text-lg leading-8 text-[#68705f]">
-                Produtos organizados por intenção de compra, com preço visível e lista de orçamento sempre à mão.
+              <p className="mt-3 max-w-2xl leading-7 text-[#68705f]">
+                Use busca, categoria, oferta e faixa de preço para chegar no produto certo mais rápido.
               </p>
             </div>
 
-            <div className="rounded-3xl bg-[#263021] p-5 text-white">
+            <div className="rounded-2xl bg-[#263021] p-4 text-white">
               <div className="flex items-center gap-3">
-                <div className="grid size-12 place-items-center rounded-2xl bg-[#e9fb4f] text-[#3f5735]">
-                  <SlidersHorizontal className="size-6" />
+                <div className="grid size-11 place-items-center rounded-xl bg-[#e9fb4f] text-[#3f5735]">
+                  <SlidersHorizontal className="size-5" />
                 </div>
                 <div>
-                  <p className="font900">Filtros úteis, não decorativos</p>
-                  <p className="mt-1 text-sm text-white/70">Categoria, promoção, busca e ordenação cobrem a primeira versão.</p>
+                  <p className="font900">{filteredProducts.length} itens encontrados</p>
+                  <p className="mt-1 text-sm text-white/70">Atualiza conforme você filtra.</p>
                 </div>
               </div>
             </div>
@@ -131,6 +145,24 @@ function ProductsPage() {
           </div>
 
           <div className="mt-6 border-t border-black/10 pt-6">
+            <p className="mb-3 text-sm font900 uppercase text-[#68705f]">Preço rápido</p>
+            <div className="grid grid-cols-2 gap-2">
+              {[10, 20, 30, 50].map((price) => (
+                <button
+                  key={price}
+                  type="button"
+                  onClick={() => setMaxPrice(maxPrice === price ? 0 : price)}
+                  className={`rounded-xl px-3 py-2 text-sm font900 transition ${
+                    maxPrice === price ? 'bg-[#f7c51f] text-[#263021]' : 'bg-[#f8f8f2] text-[#5f6759] hover:bg-[#eef0e6]'
+                  }`}
+                >
+                  Até R$ {price}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6 border-t border-black/10 pt-6">
             <button
               type="button"
               onClick={() => setDealOnly((value) => !value)}
@@ -153,6 +185,7 @@ function ProductsPage() {
               <div className="mt-2 flex flex-wrap gap-2">
                 {activeCategory && <ActiveChip label={activeCategory.name} onClick={() => setCategoryId('')} />}
                 {dealOnly && <ActiveChip label="Ofertas" onClick={() => setDealOnly(false)} />}
+                {maxPrice > 0 && <ActiveChip label={`Até R$ ${maxPrice}`} onClick={() => setMaxPrice(0)} />}
                 {query && <ActiveChip label={`Busca: ${query}`} onClick={() => setQuery('')} />}
               </div>
             </div>

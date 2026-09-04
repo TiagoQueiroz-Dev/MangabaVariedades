@@ -1,199 +1,178 @@
-import { type FormEvent, useMemo, useState } from 'react'
-import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
-import {
-  ArrowRight,
-  BadgePercent,
-  Clock,
-  MessageCircle,
-  PackageSearch,
-  Search,
-  ShieldCheck,
-  Sparkles,
-  Store,
-} from 'lucide-react'
+import { useMemo } from 'react'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { ArrowRight, BadgePercent, Clock, Flame, PackageSearch, Sparkles, Store } from 'lucide-react'
 
 import { CategoryMosaic } from '../components/catalog/CategoryMosaic'
 import { ProductCard } from '../components/catalog/ProductCard'
-import { categories, getFeaturedProducts, products } from '../data/catalog'
+import { PromoBanners } from '../components/catalog/PromoBanners'
+import { QuickFilters } from '../components/catalog/QuickFilters'
+import { categories, getDealProducts, getFeaturedProducts, getProductsUnder, products } from '../data/catalog'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
 })
 
 function HomePage() {
-  const [query, setQuery] = useState('')
-  const navigate = useNavigate()
   const featuredProducts = useMemo(() => getFeaturedProducts(), [])
-  const deals = products.filter((product) => product.tag === 'oferta')
-
-  function handleSearch(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    navigate({ to: '/produtos', search: { q: query } })
-  }
+  const deals = useMemo(() => getDealProducts(), [])
+  const underTen = useMemo(() => getProductsUnder(10), [])
 
   return (
     <main className="bg-[#f8f8f2]">
-      <section className="mx-auto grid max-w-7xl gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-14">
-        <div className="flex flex-col justify-center">
-          <div className="mb-5 flex flex-wrap gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font800 text-[#3f5735] shadow-sm ring-1 ring-black/5">
-              <Store className="size-4" />
-              Loja de variedades
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-[#e9fb4f] px-4 py-2 text-sm font900 text-[#3f5735]">
-              <Sparkles className="size-4" />
-              Novidades toda semana
-            </span>
-          </div>
-
-          <h1 className="max-w-2xl text-5xl font-black leading-[0.98] tracking-tight text-[#263021] sm:text-6xl lg:text-7xl">
-            Tudo que você precisa em um só lugar.
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-[#5f6759]">
-            Encontre achadinhos para casa, cozinha, escola, beleza e presentes. Monte sua lista e consulte a disponibilidade direto com a loja.
-          </p>
-
-          <form onSubmit={handleSearch} className="mt-8 flex max-w-xl flex-col gap-3 rounded-[1.4rem] bg-white p-2 shadow-lg ring-1 ring-black/5 sm:flex-row">
-            <label className="relative flex-1">
-              <span className="sr-only">Buscar produtos</span>
-              <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-[#8a9083]" />
-              <input
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="O que você procura hoje?"
-                className="h-12 w-full rounded-[1rem] border-0 bg-[#f8f8f2] pl-12 pr-4 text-base font700 text-[#263021] outline-none ring-1 ring-transparent transition placeholder:text-[#8a9083] focus:ring-[#99ad17]"
-              />
-            </label>
-            <button
-              type="submit"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-[1rem] bg-[#f7c51f] px-6 text-sm font900 text-[#263021] transition hover:bg-[#eab80f]"
-            >
-              Buscar
-              <ArrowRight className="size-4" />
-            </button>
-          </form>
-
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            <TrustItem icon={<BadgePercent className="size-5" />} title="Ofertas fáceis" text="Destaques por preço e procura." />
-            <TrustItem icon={<ShieldCheck className="size-5" />} title="Compra segura" text="Confirme antes de fechar." />
-            <TrustItem icon={<MessageCircle className="size-5" />} title="Atendimento direto" text="Lista pronta para WhatsApp." />
-          </div>
-        </div>
-
-        <div className="rounded-[2rem] bg-white p-3 shadow-xl ring-1 ring-black/5">
-          <CategoryMosaic />
+      <section className="border-b border-black/10 bg-white">
+        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+          <QuickFilters />
         </div>
       </section>
 
-      <section className="border-y border-black/10 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-4 px-4 py-5 sm:grid-cols-3 sm:px-6 lg:px-8">
-          <StoreMetric value={`${categories.length}+`} label="categorias organizadas" />
-          <StoreMetric value="R$ 10" label="atalho para achadinhos" />
-          <StoreMetric value="1 lista" label="para consultar vários itens" />
-        </div>
+      <section className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+        <PromoBanners />
       </section>
 
-      <section id="novidades" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <p className="text-sm font900 uppercase text-[#99ad17]">Novidades</p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight text-[#263021] sm:text-4xl">
-              Produtos que merecem vitrine
-            </h2>
-          </div>
-          <Link
-            to="/produtos"
-            className="inline-flex h-11 items-center gap-2 rounded-full border border-black/10 bg-white px-5 text-sm font900 text-[#263021] transition hover:bg-[#e9fb4f]"
-          >
-            Ver catálogo
-            <ArrowRight className="size-4" />
-          </Link>
-        </div>
-
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+      <section className="mx-auto grid max-w-7xl gap-5 px-4 pb-4 sm:px-6 lg:grid-cols-4 lg:px-8">
+        <RetailPill icon={<Store className="size-5" />} title="Retire na loja" text="Consulte disponibilidade antes de sair." />
+        <RetailPill icon={<BadgePercent className="size-5" />} title="Ofertas visíveis" text="Produtos com preço bom ganham destaque." />
+        <RetailPill icon={<PackageSearch className="size-5" />} title="Busca rápida" text="Encontre por categoria, uso ou produto." />
+        <RetailPill icon={<Clock className="size-5" />} title="Lista prática" text="Monte uma consulta em poucos cliques." />
       </section>
 
-      <section className="bg-[#263021]">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 text-white sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
-          <div>
-            <p className="text-sm font900 uppercase text-[#e9fb4f]">Achadinhos</p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight sm:text-4xl">Preço baixo precisa aparecer rápido.</h2>
-            <p className="mt-4 leading-7 text-white/72">
-              Quem entra numa loja de variedades quer bater o olho e sentir que vale a pena explorar. Por isso deixamos ofertas, novidades e categorias sempre visíveis.
-            </p>
+      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+        <div>
+          <div className="mb-5 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font900 uppercase text-[#f19500]">Departamentos</p>
+              <h1 className="mt-1 text-3xl font-black tracking-tight text-[#263021] sm:text-4xl">
+                Entre pelo corredor certo.
+              </h1>
+            </div>
             <Link
               to="/produtos"
-              search={{ deal: true }}
-              className="mt-6 inline-flex h-12 items-center gap-2 rounded-full bg-[#f7c51f] px-6 text-sm font900 text-[#263021] transition hover:bg-[#eab80f]"
+              className="hidden h-10 items-center gap-2 rounded-full border border-black/10 bg-white px-4 text-sm font900 text-[#263021] transition hover:bg-[#e9fb4f] sm:inline-flex"
             >
-              Ver ofertas
+              Todos
               <ArrowRight className="size-4" />
             </Link>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {deals.map((product) => (
-              <div key={product.id} className="rounded-2xl bg-white/10 p-5 ring-1 ring-white/10">
-                <div className="mb-5 inline-flex rounded-full bg-[#e9fb4f] px-3 py-1 text-xs font900 text-[#3f5735]">
-                  Oferta ativa
-                </div>
-                <h3 className="text-xl font900">{product.name}</h3>
-                <p className="mt-2 text-sm leading-6 text-white/70">{product.description}</p>
-              </div>
+          <CategoryMosaic />
+        </div>
+
+        <div>
+          <SectionHeading eyebrow="Mais procurados" title="Produtos para bater o olho e pedir" to="/produtos" />
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {featuredProducts.slice(0, 6).map((product) => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-3 lg:px-8">
-        <RetentionCard
-          icon={<PackageSearch className="size-6" />}
-          title="Busca antes do scroll"
-          text="O visitante não precisa caçar o campo de busca. Ele chega e já consegue procurar pelo que veio comprar."
+      <section className="border-y border-black/10 bg-white">
+        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-8 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
+          <div className="rounded-3xl bg-[#263021] p-6 text-white">
+            <Flame className="mb-5 size-8 text-[#f7c51f]" />
+            <p className="text-sm font900 uppercase text-[#e9fb4f]">Garimpo rápido</p>
+            <h2 className="mt-2 text-3xl font-black">Achadinhos até R$ 10</h2>
+            <p className="mt-3 leading-7 text-white/72">
+              Esse bloco existe para compra por impulso boa: item barato, útil e fácil de adicionar à lista.
+            </p>
+            <Link
+              to="/produtos"
+              search={{ maxPrice: 10 }}
+              className="mt-6 inline-flex h-11 items-center gap-2 rounded-full bg-[#f7c51f] px-5 text-sm font900 text-[#263021] transition hover:bg-[#eab80f]"
+            >
+              Ver até R$ 10
+              <ArrowRight className="size-4" />
+            </Link>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {underTen.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="novidades" className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Promoções"
+          title="Ofertas e novidades da semana"
+          to="/produtos"
+          search={{ deal: true }}
         />
-        <RetentionCard
-          icon={<BadgePercent className="size-6" />}
-          title="Ofertas com atalho"
-          text="Promoção, novidade e item popular aparecem como filtros de intenção, não como enfeite."
-        />
-        <RetentionCard
-          icon={<Clock className="size-6" />}
-          title="Menos atrito para pedir"
-          text="A lista de orçamento guarda itens no navegador e prepara uma mensagem de consulta."
-        />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[...deals, ...products.filter((product) => product.tag === 'novo')].slice(0, 8).map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+        <div className="rounded-3xl bg-[#e9fb4f] p-6 sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <Sparkles className="mb-4 size-8 text-[#3f5735]" />
+              <h2 className="text-3xl font-black text-[#263021]">Loja de variedades precisa ter atalhos.</h2>
+              <p className="mt-3 leading-7 text-[#3f5735]">
+                A primeira tela agora entrega busca, departamentos, promoções e produtos. Menos discurso, mais vitrine.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {categories.slice(0, 6).map((category) => (
+                <Link
+                  key={category.id}
+                  to="/produtos"
+                  search={{ category: category.id }}
+                  className="rounded-2xl bg-white/80 p-4 text-[#263021] shadow-sm transition hover:bg-white"
+                >
+                  <span className="text-sm font900">{category.shortLabel}</span>
+                  <span className="mt-1 block text-xs font700 text-[#68705f]">{category.description}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
     </main>
   )
 }
 
-function TrustItem({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+function RetailPill({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
   return (
-    <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-black/5">
-      <div className="mb-3 text-[#99ad17]">{icon}</div>
-      <p className="font900 text-[#263021]">{title}</p>
-      <p className="mt-1 text-sm leading-5 text-[#68705f]">{text}</p>
+    <div className="flex gap-3 rounded-2xl border border-black/10 bg-white p-4 shadow-sm">
+      <div className="grid size-10 shrink-0 place-items-center rounded-xl bg-[#fff1c2] text-[#f19500]">{icon}</div>
+      <div>
+        <p className="font900 text-[#263021]">{title}</p>
+        <p className="mt-1 text-sm leading-5 text-[#68705f]">{text}</p>
+      </div>
     </div>
   )
 }
 
-function StoreMetric({ value, label }: { value: string; label: string }) {
+function SectionHeading({
+  eyebrow,
+  title,
+  to,
+  search,
+}: {
+  eyebrow: string
+  title: string
+  to: '/produtos'
+  search?: { category?: string; deal?: boolean; maxPrice?: number; q?: string }
+}) {
   return (
-    <div className="flex items-center gap-4">
-      <strong className="text-3xl font-black text-[#3f5735]">{value}</strong>
-      <span className="text-sm font800 uppercase text-[#68705f]">{label}</span>
+    <div className="mb-5 flex items-end justify-between gap-4">
+      <div>
+        <p className="text-sm font900 uppercase text-[#f19500]">{eyebrow}</p>
+        <h2 className="mt-1 text-3xl font-black tracking-tight text-[#263021]">{title}</h2>
+      </div>
+      <Link
+        to={to}
+        search={search}
+        className="hidden h-10 items-center gap-2 rounded-full border border-black/10 bg-white px-4 text-sm font900 text-[#263021] transition hover:bg-[#e9fb4f] sm:inline-flex"
+      >
+        Ver mais
+        <ArrowRight className="size-4" />
+      </Link>
     </div>
-  )
-}
-
-function RetentionCard({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
-  return (
-    <article className="rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
-      <div className="mb-5 grid size-12 place-items-center rounded-2xl bg-[#e9fb4f] text-[#3f5735]">{icon}</div>
-      <h3 className="text-xl font900 text-[#263021]">{title}</h3>
-      <p className="mt-3 leading-7 text-[#68705f]">{text}</p>
-    </article>
   )
 }

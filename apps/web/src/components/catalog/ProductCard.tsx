@@ -1,11 +1,15 @@
 import {
   BookOpen,
+  Bath,
   CheckCircle2,
+  Gift,
   Heart,
   Home,
   Package,
+  Paintbrush,
   Plus,
   ShoppingBag,
+  Shirt,
   Sparkles,
   Star,
   Tag,
@@ -28,6 +32,10 @@ const categoryIcons = {
   maquiagem: Sparkles,
   brinquedos: Package,
   utilidades: ShoppingBag,
+  festa: Gift,
+  banheiro: Bath,
+  lavanderia: Shirt,
+  decoracao: Paintbrush,
 }
 
 const tagLabels = {
