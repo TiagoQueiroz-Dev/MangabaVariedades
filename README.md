@@ -22,3 +22,5 @@ pnpm start
 - API: http://localhost:3001
 - Swagger: http://localhost:3001/api
 - Postgres: localhost:55432
+
+- Figma: https://www.figma.com/design/Wq1wm9RbKn88JD3xzgxvf4/Mangaba-Variedades---Catalogo-WEB?node-id=0-1&p=f
